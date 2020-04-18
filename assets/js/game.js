@@ -1,19 +1,24 @@
+// The game's instance.
 var game = new Vue({
+    // The game's main element. The whole Vue instance only works within it.
     el: '#game',
     data: {
         interface: 'menu',
         settings: {
-            // Let's put game settings here.
+            tilesX: 5,
+            tilesY: 5,
         },
+        // The current game object.
         game: {
             // The current status of the game. (0: Not started, 1: Started)
             status: 0,
             // The current timer in seconds.
             timer: null,
         },
-        player: {
-            // Any player stats here.
-        }
+        // The current player object.
+        player: null,
+        // The current grid object.
+        grid: null,
     },
     methods: {
         /**
@@ -24,9 +29,12 @@ var game = new Vue({
             this.interface = 'frying-pan';
             // Set game as started.
             this.game.status = 1;
+            // Build the grid.
+            this.buildGrid();
             // Star the timer.
             this.startTimer();
         },
+
         startTimer: function (duration, callback) {
             // Set start timer.
             this.game.timer = duration;
@@ -45,7 +53,16 @@ var game = new Vue({
                 }
             }, 1000);
         },
-        resetGame : function () {
+
+        /**
+         * Build the grid.
+         */
+        buildGrid: function () {
+            // Set a new grid.
+            this.grid = new Grid(this.settings.tilesX, this.settings.tilesY);
+        },
+
+        resetGame: function () {
             // Reset the game.
         },
         quitGame: function () {
