@@ -41,6 +41,39 @@ var game = new Vue({
                     callback();
                 }
             }, 1000);
+        },
+        resetGame : function () {
+            // Reset the game.
+        },
+        quitGame: function () {
+            // Quit the game.
+        },
+        nextRound: function () {
+            // Increase the difficulty of the game.
+        },
+        movePlayer: function () {
+            // Move the player.
+        },
+        addObstacle: function () {
+            // Spawn an obstacle.
+        },
+        removeObstacle: function () {
+            // Remove an obstacle.
+        },
+        heatTile: function () {
+            // Heat a tile up.
+        },
+        coolTile: function () {
+            // Cool a tile down.
+        },
+        damagePlayer: function () {
+            // Deal damage to the player.
+        },
+        healPlayer: function () {
+            // Heal the player.
+        },
+        killPlayer: function () {
+            // If the player dies.
         }
     }
 });

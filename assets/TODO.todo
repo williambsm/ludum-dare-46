@@ -1,0 +1,30 @@
+THESE ARE THE THINGS THAT WE NEED
+
+ASSETS
+
+- A frying pan background
+- A potato character
+- Flames
+
+BASE CODING FUNCTIONALITY
+assign your name if you're doing this.
+
+- [] A menu to start the game.
+- [] The player can move around.
+- [] Tiles become hot and cold every few seconds.
+- [] Flames randomly appear on the tiles.
+- [] The player can die.
+- [] The player loses hp when he is on a hot tile.
+- [] A game over screen with results.
+- [] A play again button.
+
+BASE TEMPLATE FUNCTIONALITY
+assign your name if you're doing this.
+
+- [] A start menu.
+- [] A frying pan container.
+- [] Tiles inside the frying pan.
+- [] A player element.
+- [] A flame element.
+- [] Hot tile attribute modifier.
+- [] A game over screen.
