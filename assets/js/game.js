@@ -1,6 +1,7 @@
 var game = new Vue({
     el: '#game',
     data: {
+        interface: 'menu',
         settings: {
             // Let's put game settings here.
         },
@@ -19,6 +20,8 @@ var game = new Vue({
          * Start the game.
          */
         startGame: function () {
+            // Show game interface.
+            this.interface = 'frying-pan';
             // Set game as started.
             this.game.status = 1;
             // Star the timer.

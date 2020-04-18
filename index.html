@@ -11,6 +11,15 @@
             <h1>Welcome to Ludum Dare 46!</h1>
             <p>Some random game idea.</p>
         </div>
+        <div class="menu" v-if="interface === 'menu'">
+            <ul>
+                <li><button v-on:click="startGame">Start game</button></li>
+                <li><button>Settings</button></li>
+                <li><button>What is going on?</button></li>
+            </ul>
+            Made by William Ste-Marie, Amanda Lee-Zuck and Carl Karlstrom.
+        </div>
+        <div class="frying-pan" v-if="interface === 'frying-pan'">FWOOSH</div>
     </div>
     <center>You have no idea how to code Vue? <a href="https://vuejs.org/v2/guide/" target="_blank" rel="noopener">https://vuejs.org/v2/guide/</a></center>
     <center>You forgot how CSS Grids work? <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">https://css-tricks.com/snippets/css/complete-guide-grid/</a></center>
