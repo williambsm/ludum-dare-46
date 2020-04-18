@@ -49,3 +49,18 @@
     padding: 10px 20px;
   }
 }
+
+.frying-pan {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, min-content);
+  grid-template-rows: repeat(5, min-content);
+  grid-gap: 2px;
+  justify-content: center;
+
+  .tile {
+    background-color: #444;
+    width: 75px;
+    height: 75px;
+  }
+}
