@@ -16,4 +16,27 @@ class Grid {
             }
         }
     }
+
+    getLeftTile (tile) {
+
+    }
+
+    /**
+     * Return a tile using X and Y position.
+     *
+     * @param posX
+     * @param posY
+     *
+     * @returns {boolean|*}
+     */
+    getTile (posX, posY) {
+
+        for (let tile of this.tiles) {
+            if (tile.x === posX && tile.y === posY) {
+                return tile;
+            }
+        }
+
+        return false;
+    }
 }

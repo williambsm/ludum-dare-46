@@ -8,13 +8,15 @@ class Tile {
         this.hot = false;
         // Set if the player is on the tile.
         this.player = false;
+        // Set if the tile has flames on.
+        this.flames = false;
     }
 
     /**
      * Set the heat on the tile.
      *
      */
-    setHeatOn() {
+    setHeatOn () {
         this.hot = true;
     }
 
@@ -28,14 +30,16 @@ class Tile {
     /**
      * Set the player as on the tile.
      */
-    setPlayerOn() {
+    setPlayerOn () {
         this.player = true;
     }
 
     /**
      * Set the player off the tile.
      */
-    setPlayerOff() {
+    setPlayerOff () {
         this.player = false;
     }
+
+
 }
