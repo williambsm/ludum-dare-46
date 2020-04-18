@@ -2,14 +2,16 @@ THESE ARE THE THINGS THAT WE NEED
 
 ASSETS
 
-- A frying pan background
-- A potato character
-- Flames
+- [] A frying pan background
+- [] A potato character
+- [] Flames
 
 BASE CODING FUNCTIONALITY
 assign your name if you're doing this.
 
-- [] A menu to start the game.
+- [X] [William] Set up npm.
+- [X] [William] Set up SASS.
+- X [William] A menu to start the game.
 - [] The player can move around.
 - [] Tiles become hot and cold every few seconds.
 - [] Flames randomly appear on the tiles.

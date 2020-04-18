@@ -1,0 +1,23 @@
+{
+  "name": "ludum-dare-46",
+  "version": "1.0.0",
+  "description": "A package for Ludum Dare 46",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williambsm/ludum-dare-46.git"
+  },
+  "author": "William Ste-Marie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/williambsm/ludum-dare-46/issues"
+  },
+  "homepage": "https://github.com/williambsm/ludum-dare-46#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2"
+  }
+}
