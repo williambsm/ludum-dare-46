@@ -29,7 +29,7 @@
         </div>
         <div class="frying-pan" v-if="interface === 'frying-pan'">
             <div v-for="tile in grid.tiles" class="tile" v-bind:class="{ on: tile.hot }" :data-position-x="tile.x" :data-position-y="tile.y">
-                <div class="player" v-if="tile.player"></div>
+                <div class="player" v-bind:class="{ dead: player.dead }" v-if="tile.player"></div>
             </div>
         </div>
         <div class="info">

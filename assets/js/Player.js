@@ -12,6 +12,8 @@ class Player {
         this.tile = null;
         // Set player movement enabled.
         this.canMove = true;
+        // Set if player is dead.
+        this.dead = false;
 
         // Set player on tile.
         this.movePlayer(tile);
@@ -23,7 +25,16 @@ class Player {
      * @param amount
      */
     loseHealth(amount) {
+        // Lose hp.
         this.health = this.health - amount;
+
+        // Check if player is dead.
+        if (this.health < 1) {
+            // Set player as dead.
+            this.dead = true;
+            // Disable movement.
+            this.canMove = false;
+        }
     }
 
     /**
