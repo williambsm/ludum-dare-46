@@ -1,3 +1,15 @@
+.player {
+  width: 40px;
+  height: 60px;
+  background-image: url(../sheets/player.png);
+  animation: moveX 0.7s steps(7) infinite; }
+
+@keyframes moveX {
+  from {
+    background-position-x: -560px; }
+  to {
+    background-position-x: -840px; } }
+
 .game {
   width: 1024px;
   height: 600px;
@@ -52,17 +64,14 @@
   grid-gap: 2px;
   justify-content: center; }
   .frying-pan .tile {
+    display: flex;
     background-color: #9b9b9b;
     width: 75px;
-    height: 75px; }
+    height: 75px;
+    align-items: center;
+    justify-content: center; }
     .frying-pan .tile.on {
       background-color: #ca5f52; }
-
-.player {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: red; }
 
 .info {
   text-align: center; }

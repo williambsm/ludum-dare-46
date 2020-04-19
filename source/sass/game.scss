@@ -1,3 +1,5 @@
+@import 'player';
+
 .game {
   width: 1024px;
   height: 600px;
@@ -66,21 +68,18 @@
   justify-content: center;
 
   .tile {
+    display: flex;
     background-color: #9b9b9b;
     width: 75px;
     height: 75px;
+
+    align-items: center;
+    justify-content: center;
 
     &.on {
       background-color: #ca5f52;
     }
   }
-}
-
-.player {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: red;
 }
 
 .info {
