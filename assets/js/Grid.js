@@ -50,6 +50,17 @@ class Grid {
     }
 
     /**
+     * In this function, you just need to loop through all the tiles and turn the heat on for each of them.
+     *
+     * @param tiles
+     *
+     * @returns boolean
+     */
+    turnTilesOn (tiles) {
+
+    }
+
+    /**
      * In this function, you should randomly select between multiple patterns and return it.
      * Possible patterns: [Half of pan, The Big X, The Big Plus, The Four Corners, The Break]
      *
@@ -81,14 +92,17 @@ class Grid {
 
     }
 
-    /**
-     * In this function, you just need to loop through all the tiles and turn the heat on for each of them.
-     *
-     * @param tiles
-     *
-     * @returns boolean
-     */
-    turnHeatOn (tiles) {
+    rotateHeatedTiles () {
+        // Turn off all heated tiles.
+        this.turnTilesOff();
 
+        // Randomly select a new pattern.
+        let pattern = this.selectPattern();
+        // Randomly select a direction.
+        let direction = this.selectDirection();
+        // Get new pattern tiles.
+        let heatedTiles = this.getPatternTiles(pattern, direction);
+        // Turn the tiles on.
+        this.turnTilesOn(heatedTiles);
     }
 }
