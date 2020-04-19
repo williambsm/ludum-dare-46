@@ -20,6 +20,8 @@ var game = new Vue({
             timerDate: null,
             // The starting timer event.
             timerEvent: null,
+            // The heating damage event timer.
+            heatingDamageTimer: 0,
         },
         // The current player object.
         player: null,
@@ -31,8 +33,6 @@ var game = new Vue({
          * Start the game.
          */
         startGame: function () {
-            // Show game interface.
-            this.interface = 'frying-pan';
             // Set game as started.
             this.game.status = 1;
             // Initiate the grid.
@@ -44,6 +44,8 @@ var game = new Vue({
             this.initiateTimer();
             // Run the update interval.
             this.update();
+            // Show game interface.
+            this.interface = 'frying-pan';
         },
 
         /**
@@ -79,9 +81,9 @@ var game = new Vue({
          */
         displayTimer : function () {
             // Get minutes.
-            let minutes = Math.floor((this.game.timer / 10) / 60);
+            let minutes = Math.floor((this.game.timer / 100) / 60);
             // Get seconds.
-            let seconds = Math.floor((this.game.timer / 10) % 60);
+            let seconds = Math.floor((this.game.timer / 100) % 60);
             // Return formatted.
             return (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
         },
@@ -103,9 +105,20 @@ var game = new Vue({
             // Interval.
             this.game.timerEvent = setInterval(function () {
                 // Get timer now.
-                let timer = Date.now();
+                let timer = Math.floor((Date.now() - gameApp.game.timerDate) / 10);
+
                 // Set timer elapsed.
-                gameApp.game.timer = Math.floor((timer - gameApp.game.timerDate) / 100);
+                gameApp.game.timer = timer;
+
+                // Check if heating damage timer is higher than needed.
+                if (gameApp.game.heatingDamageTimer + 1 <= timer) {
+                    // Check for damage.
+                    if (gameApp.player.tile.hot) {
+                        gameApp.player.loseHealth(gameApp.player.tile.damage);
+                    }
+                    // Reset timer.
+                    gameApp.game.heatingDamageTimer = timer;
+                }
             }, 1);
         },
 

@@ -14,14 +14,6 @@
   text-align: center;
 }
 
-.field {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 50px 200px 225px;
-  background-color: grey;
-  width: 100%;
-}
-
 .stats {
   width: 383px;
   display: grid;
@@ -74,9 +66,13 @@
   justify-content: center;
 
   .tile {
-    background-color: #444;
+    background-color: #9b9b9b;
     width: 75px;
     height: 75px;
+
+    &.on {
+      background-color: #ca5f52;
+    }
   }
 }
 

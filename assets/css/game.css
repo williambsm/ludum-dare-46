@@ -12,13 +12,6 @@
 .header {
   text-align: center; }
 
-.field {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 50px 200px 225px;
-  background-color: grey;
-  width: 100%; }
-
 .stats {
   width: 383px;
   display: grid;
@@ -59,9 +52,11 @@
   grid-gap: 2px;
   justify-content: center; }
   .frying-pan .tile {
-    background-color: #444;
+    background-color: #9b9b9b;
     width: 75px;
     height: 75px; }
+    .frying-pan .tile.on {
+      background-color: #ca5f52; }
 
 .player {
   width: 100%;

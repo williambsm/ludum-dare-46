@@ -21,14 +21,14 @@
         </div>
         <div class="stats" v-if="interface === 'frying-pan'">
             <div class="health-bar">
-                <div class="health" v-bind:style="{ width: player.health + '%' }"></div>
+                <div class="health" v-bind:style="{ width: player.getHealthPercentage() + '%' }"></div>
             </div>
             <div class="timer">
                 {{ displayTimer() }}
             </div>
         </div>
         <div class="frying-pan" v-if="interface === 'frying-pan'">
-            <div v-for="tile in grid.tiles" class="tile" :data-position-x="tile.x" :data-position-y="tile.y">
+            <div v-for="tile in grid.tiles" class="tile" v-bind:class="{ on: tile.hot }" :data-position-x="tile.x" :data-position-y="tile.y">
                 <div class="player" v-if="tile.player"></div>
             </div>
         </div>

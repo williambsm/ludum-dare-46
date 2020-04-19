@@ -1,7 +1,9 @@
 class Player {
     constructor(tile) {
         // Set players default hp.
-        this.health = 100;
+        this.health = 1000;
+        // Set player max hp.
+        this.maxHealth = 1000;
         // Set players x position.
         this.x = null;
         // Set players y position.
@@ -31,6 +33,10 @@ class Player {
      */
     gainHealth(amount) {
         this.health = this.health + amount;
+    }
+
+    getHealthPercentage () {
+        return this.health * 100 / this.maxHealth;
     }
 
     /**
