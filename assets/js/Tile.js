@@ -10,6 +10,8 @@ class Tile {
         this.player = false;
         // Set if the tile has flames on.
         this.flames = false;
+        // Set tile damage if it is hot.
+        this.damage = 1;
     }
 
     /**
