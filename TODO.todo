@@ -11,8 +11,8 @@ assign your name if you're doing this.
 
 - [X] [William] Set up npm.
 - [X] [William] Set up SASS.
-- [] A menu to start the game.
-- [] The player can move around.
+- [X] [William] A menu to start the game.
+- [X] [William] The player can move around.
 - [] Tiles become hot and cold every few seconds.
 - [] Flames randomly appear on the tiles.
 - [] The player can die.
@@ -23,10 +23,10 @@ assign your name if you're doing this.
 BASE TEMPLATE FUNCTIONALITY
 assign your name if you're doing this.
 
-- [William] A start menu.
-- [Amanda] A frying pan container.
-- [Amanda] Tiles inside the frying pan.
-- [Amanda] A player element.
-- [Amanda] A flame element.
+- [X] [William] A start menu.
+- [X] [Amanda] A frying pan container.
+- [X] [Amanda] Tiles inside the frying pan.
+- [William] A player element.
+- [William] A flame element.
 - [] Hot tile attribute modifier.
 - [] A game over screen.
