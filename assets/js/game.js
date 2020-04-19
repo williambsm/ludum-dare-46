@@ -42,6 +42,8 @@ var game = new Vue({
             this.initiatePlayer();
             // Initiate the timer.
             this.initiateTimer();
+            // Run the update interval.
+            this.update();
         },
 
         /**
@@ -68,15 +70,6 @@ var game = new Vue({
         initiateTimer: function () {
             // Set new timer.
             this.game.timerDate = Date.now();
-            // Refer to this app.
-            let gameApp = this;
-            // Set timer interval.
-            this.game.timerEvent = setInterval(function () {
-                // Get timer now.
-                let timer = Date.now();
-                // Set timer elapsed.
-                gameApp.game.timer = Math.floor((timer - gameApp.game.timerDate) / 100);
-            }, 1);
         },
 
         /**
@@ -96,11 +89,24 @@ var game = new Vue({
         resetGame: function () {
             // Reset the game.
         },
+
         quitGame: function () {
             // Quit the game.
         },
         nextRound: function () {
             // Increase the difficulty of the game.
+        },
+
+        update: function () {
+            // Refer to this app.
+            let gameApp = this;
+            // Interval.
+            this.game.timerEvent = setInterval(function () {
+                // Get timer now.
+                let timer = Date.now();
+                // Set timer elapsed.
+                gameApp.game.timer = Math.floor((timer - gameApp.game.timerDate) / 100);
+            }, 1);
         },
 
         onKeyDown: function (event) {
