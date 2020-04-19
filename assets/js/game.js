@@ -53,7 +53,7 @@ var game = new Vue({
          */
         initiateGrid: function () {
             // Set a new grid.
-            this.grid = new Grid(this.settings.tilesX, this.settings.tilesY);
+            this.grid = new Grid(this.settings.tilesX, this.settings.tilesY, this.game.timerDate);
         },
 
         /**
@@ -118,6 +118,15 @@ var game = new Vue({
                     }
                     // Reset timer.
                     gameApp.game.heatingDamageTimer = timer;
+                }
+
+                // Check if the pattern has been set, or if the timer is old
+                // TODO: Make timer check work
+                console.log(this.game.grid.lastPatternTime + " :: :: :: " + timer);
+                if (this.game.grid.lastPatternTime === null || this.game.grid.lastPatternTime + 300 <= timer){
+                    this.game.grid.rotateHeatedTiles();
+                    this.game.grid.lastPatternTime = timer;
+
                 }
             }, 1);
         },

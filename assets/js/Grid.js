@@ -2,16 +2,17 @@ class Grid {
     constructor (sizeX, sizeY) {
         this.tiles = [];
 
+        // Set last pattern for preventing the same pattern from going back to back
+        this.lastPattern = "";
+        this.lastPatternTime = 0;
+
+
         // Go through all the rows.
         for (let countY = 0; countY < sizeX; countY = countY + 1) {
             // Go through all the columns.
             for (let countX = 0; countX < sizeY; countX = countX + 1) {
                 // Duplicate a new tile.
                 let newTile = new Tile(countX, countY);
-                // Make first tile hot for now.
-                if (countX === 0 && countY === 0) {
-                    newTile.hot = true;
-                }
                 // Set the X and Y positions.
                 newTile.x = countX;
                 newTile.y = countY;
@@ -44,13 +45,22 @@ class Grid {
     }
 
     /**
-     * In this function, you just need to turn all of the tiles off by looping through them and setting them  to heat off.
+     * In this function, you just need to turn all of the tiles off by looping through them and setting them to heat off.
      * Look at this.tiles to see all the tiles.
      *
      * @returns boolean
      */
     turnTilesOff () {
+        // Go through all the tiles.
+        for (let tile of this.tiles) {
+            // Turn the hot off
+            tile.hot = false;
+            // Turn the flames off
+            // tile.flames = false;
+        }
 
+        // Return not found.
+        return true;
     }
 
     /**
@@ -61,7 +71,14 @@ class Grid {
      * @returns boolean
      */
     turnTilesOn (tiles) {
+        // Go through all the tiles.
+        for (let tile of tiles) {
+            // Turn the hot off
+            tile.hot = true;
+        }
 
+        // Return not found.
+        return true;
     }
 
     /**
@@ -70,8 +87,41 @@ class Grid {
      *
      * @returns string
      */
-    selectPattern () {
+    selectPattern() {
+        let rand = Math.floor(Math.random() * 5) + 1;
 
+        switch (rand) {
+            case 1:
+                if(this.lastPattern === "Half of Pan"){
+                    return this.selectPattern();
+                }
+                    return "Half of Pan";
+                break;
+            case 2:
+                if(this.lastPattern === "The Big X"){
+                    return this.selectPattern();
+                }
+                    return "The Big X";
+                break;
+            case 3:
+                if(this.lastPattern === "The Big Plus"){
+                    return this.selectPattern();
+                }
+                    return "The Big Plus";
+                break;
+            case 4:
+                if(this.lastPattern === "The Four Corners"){
+                    return this.selectPattern();
+                }
+                    return "The Four Corners";
+                break;
+            case 5:
+                if(this.lastPattern === "The Break"){
+                    return this.selectPattern();
+                }
+                    return "The Break";
+                break;
+        }
     }
 
     /**
@@ -81,7 +131,22 @@ class Grid {
      * @returns string
      */
     selectDirection () {
+        let rand = Math.floor(Math.random() * 4) + 1;
 
+        switch (rand) {
+            case 1:
+                    return "Up";
+                break;
+            case 2:
+                    return "Down";
+                break;
+            case 3:
+                    return "Left";
+                break;
+            case 4:
+                    return "Right";
+                break;
+        }
     }
 
     /**
@@ -93,6 +158,123 @@ class Grid {
      * @returns array
      */
     getPatternTiles (pattern,direction) {
+
+    switch (pattern) {
+        case "Half of Pan":
+                switch (direction) {
+                case "Up":
+                    return  [
+                              this.tiles[0],
+                              this.tiles[1],
+                              this.tiles[2],
+                              this.tiles[3],
+                              this.tiles[4],
+                              this.tiles[5],
+                              this.tiles[6],
+                              this.tiles[7],
+                              this.tiles[8],
+                              this.tiles[9]
+                          ];
+                    break;
+                case "Down":
+                    return  [
+                              this.tiles[15],
+                              this.tiles[16],
+                              this.tiles[17],
+                              this.tiles[18],
+                              this.tiles[19],
+                              this.tiles[20],
+                              this.tiles[21],
+                              this.tiles[22],
+                              this.tiles[23],
+                              this.tiles[24]
+                          ];
+                    break;
+                case "Left":
+                    return  [
+                              this.tiles[0],
+                              this.tiles[1],
+                              this.tiles[5],
+                              this.tiles[6],
+                              this.tiles[10],
+                              this.tiles[11],
+                              this.tiles[15],
+                              this.tiles[16],
+                              this.tiles[20],
+                              this.tiles[21]
+                          ];
+                    break;
+                case "Right":
+                return  [
+                          this.tiles[3],
+                          this.tiles[4],
+                          this.tiles[8],
+                          this.tiles[9],
+                          this.tiles[13],
+                          this.tiles[14],
+                          this.tiles[18],
+                          this.tiles[19],
+                          this.tiles[23],
+                          this.tiles[24]
+                      ];
+                    break;
+                default:
+
+            }
+            break;
+        case "The Big X":
+            return  [
+                      this.tiles[4],
+                      this.tiles[8],
+                      this.tiles[12],
+                      this.tiles[16],
+                      this.tiles[20],
+                      this.tiles[0],
+                      this.tiles[6],
+                      this.tiles[12],
+                      this.tiles[18],
+                      this.tiles[24]
+                  ];
+            break;
+        case "The Big Plus":
+            return  [
+                      this.tiles[2],
+                      this.tiles[7],
+                      this.tiles[12],
+                      this.tiles[17],
+                      this.tiles[22],
+                      this.tiles[10],
+                      this.tiles[11],
+                      this.tiles[12],
+                      this.tiles[13],
+                      this.tiles[14]
+                  ];
+            break;
+        case "The Four Corners":
+            return  [
+                      this.tiles[0],
+                      this.tiles[1],
+                      this.tiles[3],
+                      this.tiles[4],
+                      this.tiles[5],
+                      this.tiles[6],
+                      this.tiles[8],
+                      this.tiles[9],
+                      this.tiles[15],
+                      this.tiles[16],
+                      this.tiles[18],
+                      this.tiles[19],
+                      this.tiles[20],
+                      this.tiles[21],
+                      this.tiles[23],
+                      this.tiles[24]
+                  ];
+            break;
+        case "The Break":
+                return [ this.tiles[12]];
+            break;
+
+    }
 
     }
 
@@ -106,6 +288,9 @@ class Grid {
         let direction = this.selectDirection();
         // Get new pattern tiles.
         let heatedTiles = this.getPatternTiles(pattern, direction);
+
+        // Record pattern
+        this.lastPattern = pattern;
         // Turn the tiles on.
         this.turnTilesOn(heatedTiles);
     }
