@@ -16,6 +16,10 @@ var game = new Vue({
             status: 0,
             // The current timer in seconds.
             timer: null,
+            // The starting timer date timestamp.
+            timerDate: null,
+            // The starting timer event.
+            timerEvent: null,
         },
         // The current player object.
         player: null,
@@ -40,31 +44,53 @@ var game = new Vue({
             this.initiateTimer();
         },
 
-        startTimer: function (duration, callback) {
-            // Set start timer.
-            this.game.timer = duration;
-
-            // Run timer.
-            var timer = setInterval(() => {
-                // Decrement the timer.
-                this.game.timer = this.game.timer - 1;
-
-                // Check if timer is at zero.
-                if (this.game.timer === 0) {
-                    // Clear the timer.
-                    clearInterval(timer);
-                    // Do callback function.
-                    callback();
-                }
-            }, 1000);
-        },
-
         /**
          * Initiate the grid.
          */
         initiateGrid: function () {
             // Set a new grid.
             this.grid = new Grid(this.settings.tilesX, this.settings.tilesY);
+        },
+
+        /**
+         * Initiate the player instance.
+         */
+        initiatePlayer: function () {
+            // Get starting tile.
+            let startingTile = this.grid.getTile(this.settings.startPositionX, this.settings.startPositionY);
+            // Initiate player instance.
+            this.player = new Player(startingTile);
+        },
+
+        /**
+         * Start the timer.
+         */
+        initiateTimer: function () {
+            // Set new timer.
+            this.game.timerDate = Date.now();
+            // Refer to this app.
+            let gameApp = this;
+            // Set timer interval.
+            this.game.timerEvent = setInterval(function () {
+                // Get timer now.
+                let timer = Date.now();
+                // Set timer elapsed.
+                gameApp.game.timer = Math.floor((timer - gameApp.game.timerDate) / 100);
+            }, 1);
+        },
+
+        /**
+         * Format and display the timer.
+         *
+         * @returns {string}
+         */
+        displayTimer : function () {
+            // Get minutes.
+            let minutes = Math.floor((this.game.timer / 10) / 60);
+            // Get seconds.
+            let seconds = Math.floor((this.game.timer / 10) % 60);
+            // Return formatted.
+            return (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
         },
 
         resetGame: function () {
@@ -76,15 +102,7 @@ var game = new Vue({
         nextRound: function () {
             // Increase the difficulty of the game.
         },
-        initiatePlayer: function () {
-            // Get starting tile.
-            let startingTile = this.grid.getTile(this.settings.startPositionX, this.settings.startPositionY);
-            // Initiate player instance.
-            this.player = new Player(startingTile);
-        },
-        initiateTimer: function () {
 
-        },
         onKeyDown: function (event) {
             // If left arrow or a key is pressed.
             if (event.which === 37 || event.key === 37 || event.keyCode === 37 || event.which === 65 || event.key === 65 || event.keyCode === 65) {
@@ -130,14 +148,9 @@ var game = new Vue({
                 }
             }
         },
-        addObstacle: function () {
-            // Spawn an obstacle.
-        },
-        removeObstacle: function () {
-            // Remove an obstacle.
-        },
     },
     created: function () {
+        // Mount keyboard events.
         window.addEventListener('keydown', this.onKeyDown);
     }
 });
