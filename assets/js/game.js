@@ -45,7 +45,7 @@ var game = new Vue({
             // Run the update interval.
             this.update();
             // Show game interface.
-            this.interface = 'frying-pan';
+            this.interface = 'game';
         },
 
         /**
@@ -121,8 +121,6 @@ var game = new Vue({
                 }
 
                 // Check if the pattern has been set, or if the timer is old
-                // TODO: Make timer check work
-                console.log(this.game.grid.lastPatternTime + " :: :: :: " + timer);
                 if (this.game.grid.lastPatternTime === null || this.game.grid.lastPatternTime + 300 <= timer){
                     this.game.grid.rotateHeatedTiles();
                     this.game.grid.lastPatternTime = timer;

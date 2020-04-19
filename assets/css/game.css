@@ -1,3 +1,42 @@
+.pan {
+  background-image: url(../images/pan.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 850px;
+  height: 850px;
+  position: relative;
+  border: 1px black solid;
+  margin: 0 auto; }
+  .pan .health-bar {
+    width: 200px;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background-color: red;
+    height: 20px;
+    border: 1px black solid; }
+    .pan .health-bar .health {
+      height: 20px;
+      background-color: green; }
+  .pan .grid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    grid-template-columns: repeat(5, min-content);
+    grid-template-rows: repeat(5, min-content);
+    grid-gap: 2px;
+    transform: translate(-50%, -50%); }
+  .pan .tile {
+    display: flex;
+    width: 75px;
+    height: 75px;
+    border: 1px #5a5a5a dashed;
+    align-items: center;
+    justify-content: center; }
+    .pan .tile.on {
+      background-color: rgba(255, 0, 0, 0.25); }
+
 .player {
   width: 40px;
   height: 60px;
@@ -18,68 +57,38 @@
   to {
     background-position-x: -520px; } }
 
-.game {
-  width: 1024px;
-  height: 600px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: min-content min-content 1fr min-content;
-  grid-row-gap: 25px;
-  margin: 0 auto;
-  font-family: 'Arial', sans-serif;
-  justify-items: center; }
-
-.header {
-  text-align: center; }
-
 .stats {
   width: 383px;
   display: grid;
   grid-template-columns: 8fr 2fr;
   grid-column-gap: 20px; }
 
-.health-bar {
-  background-color: red;
-  height: 20px;
-  border: 1px black solid; }
-
-.health {
-  height: 20px;
-  background-color: green; }
-
 .timer {
   justify-self: center;
   align-self: center; }
 
 .menu {
-  width: 100%;
-  background-color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   margin: 0 auto;
-  text-align: center; }
+  text-align: center;
+  transform: translate(-50%, -50%); }
+  .menu .header {
+    color: white;
+    font-family: pixelar, sans-serif; }
+  .menu .sub-header {
+    color: white;
+    font-family: pixelar, sans-serif; }
   .menu ul {
-    list-style-type: none; }
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin-top: 40px; }
   .menu li {
     margin-bottom: 20px; }
   .menu button {
     width: 200px;
     padding: 10px 20px; }
-
-.frying-pan {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, min-content);
-  grid-template-rows: repeat(5, min-content);
-  grid-gap: 2px;
-  justify-content: center; }
-  .frying-pan .tile {
-    display: flex;
-    background-color: #9b9b9b;
-    width: 75px;
-    height: 75px;
-    align-items: center;
-    justify-content: center; }
-    .frying-pan .tile.on {
-      background-color: #ca5f52; }
 
 .info {
   text-align: center; }

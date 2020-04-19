@@ -6,12 +6,10 @@
     <link rel="stylesheet" type="text/css" href="assets/css/game.css">
 </head>
 <body>
-    <div class="game" id="game">
-        <div class="header">
-            <h1>Frying Pan Showdown!</h1>
-            <p>You're about to get fried, how long can you last?</p>
-        </div>
+    <div class="pan" id="game">
         <div class="menu" v-if="interface === 'menu'">
+            <h1 class="header">Frying Pan Showdown!</h1>
+            <p class="sub-header">You're about to get fried, how long can you last?</p>
             <ul>
                 <li><button v-on:click="startGame">Start game</button></li>
                 <li><button>Settings</button></li>
@@ -19,22 +17,16 @@
                 <li><button>Credits</button></li>
             </ul>
         </div>
-        <div class="stats" v-if="interface === 'frying-pan'">
-            <div class="health-bar">
-                <div class="health" v-bind:style="{ width: player.getHealthPercentage() + '%' }"></div>
-            </div>
-            <div class="timer">
-                {{ displayTimer() }}
-            </div>
+        <div class="health-bar" v-if="interface === 'game'">
+            <div class="health" v-bind:style="{ width: player.getHealthPercentage() + '%' }"></div>
         </div>
-        <div class="frying-pan" v-if="interface === 'frying-pan'">
+        <div class="timer" v-if="interface === 'game'">
+            {{ displayTimer() }}
+        </div>
+        <div class="grid" v-if="interface === 'game'">
             <div v-for="tile in grid.tiles" class="tile" v-bind:class="{ on: tile.hot }" :data-position-x="tile.x" :data-position-y="tile.y">
                 <div class="player" v-bind:class="{ dead: player.dead }" v-if="tile.player"></div>
             </div>
-        </div>
-        <div class="info">
-            <span>You have no idea how to code Vue? <a href="https://vuejs.org/v2/guide/" target="_blank" rel="noopener">https://vuejs.org/v2/guide/</a></span>
-            <span>You forgot how CSS Grids work? <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">https://css-tricks.com/snippets/css/complete-guide-grid/</a></span>
         </div>
     </div>
     <!-- development version, includes helpful console warnings -->

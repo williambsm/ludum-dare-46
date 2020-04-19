@@ -6,7 +6,6 @@ class Grid {
         this.lastPattern = "";
         this.lastPatternTime = 0;
 
-
         // Go through all the rows.
         for (let countY = 0; countY < sizeX; countY = countY + 1) {
             // Go through all the columns.

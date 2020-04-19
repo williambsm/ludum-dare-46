@@ -1,20 +1,5 @@
+@import 'pan';
 @import 'player';
-
-.game {
-  width: 1024px;
-  height: 600px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: min-content min-content 1fr min-content;
-  grid-row-gap: 25px;
-  margin: 0 auto;
-  font-family: 'Arial', sans-serif;
-  justify-items: center;
-}
-
-.header {
-  text-align: center;
-}
 
 .stats {
   width: 383px;
@@ -23,30 +8,33 @@
   grid-column-gap: 20px;
 }
 
-.health-bar {
-  background-color: red;
-  height: 20px;
-  border: 1px black solid;
-}
-
-.health {
-  height: 20px;
-  background-color: green;
-}
-
 .timer {
   justify-self: center;
   align-self: center;
 }
 
 .menu {
-  width: 100%;
-  background-color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   margin: 0 auto;
   text-align: center;
+  transform: translate(-50%, -50%);
+
+  .header {
+    color: white;
+    font-family: pixelar, sans-serif;
+  }
+
+  .sub-header {
+    color: white;
+    font-family: pixelar, sans-serif;
+  }
 
   & ul {
     list-style-type: none;
+    padding-inline-start: 0;
+    margin-top: 40px;
   }
 
   & li {
@@ -56,29 +44,6 @@
   & button {
     width: 200px;
     padding: 10px 20px;
-  }
-}
-
-.frying-pan {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, min-content);
-  grid-template-rows: repeat(5, min-content);
-  grid-gap: 2px;
-  justify-content: center;
-
-  .tile {
-    display: flex;
-    background-color: #9b9b9b;
-    width: 75px;
-    height: 75px;
-
-    align-items: center;
-    justify-content: center;
-
-    &.on {
-      background-color: #ca5f52;
-    }
   }
 }
 
