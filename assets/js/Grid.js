@@ -8,6 +8,10 @@ class Grid {
             for (let countX = 0; countX < sizeY; countX = countX + 1) {
                 // Duplicate a new tile.
                 let newTile = new Tile(countX, countY);
+                // Make first tile hot for now.
+                if (countX === 0 && countY === 0) {
+                    newTile.hot = true;
+                }
                 // Set the X and Y positions.
                 newTile.x = countX;
                 newTile.y = countY;
