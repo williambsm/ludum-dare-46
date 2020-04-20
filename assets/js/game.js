@@ -22,6 +22,8 @@ var game = new Vue({
             timerEvent: null,
             // The heating damage event timer.
             heatingDamageTimer: 0,
+            // Current Round
+            currentRound: 1,
         },
         // The current player object.
         player: null,
@@ -111,18 +113,20 @@ var game = new Vue({
                 // Check if heating damage timer is higher than needed.
                 if (gameApp.game.heatingDamageTimer + 1 <= timer) {
                     // Check for damage.
-                    if (gameApp.player.tile.hot) {
+                    if (gameApp.player.tile.hot || gameApp.player.tile.flames) {
                         gameApp.player.loseHealth(gameApp.player.tile.damage);
                     }
                     // Reset timer.
                     gameApp.game.heatingDamageTimer = timer;
                 }
 
-                // Check if the pattern has been set, or if the timer is old
+                // Increase the game difficulty and level
+
+
+                // Check if the pattern has been set, or if its time for a new pattern
                 if (this.game.grid.lastPatternTime === null || this.game.grid.lastPatternTime + 300 <= timer){
                     this.game.grid.rotateHeatedTiles();
                     this.game.grid.lastPatternTime = timer;
-
                 }
 
                 // Check for game over.
