@@ -25,6 +25,7 @@
         </div>
         <div class="grid" v-if="interface === 'game'">
             <div v-for="tile in grid.tiles" class="tile" v-bind:class="{ on: tile.hot }" :data-position-x="tile.x" :data-position-y="tile.y">
+                <div class="flames" v-if="tile.flames"></div>
                 <div class="player" v-bind:class="{ dead: player.dead }" v-if="tile.player"></div>
             </div>
         </div>

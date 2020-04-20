@@ -120,17 +120,14 @@ var game = new Vue({
                     gameApp.game.heatingDamageTimer = timer;
                 }
 
-                // Increase the game difficulty and level
-
-
                 // Check if the pattern has been set, or if its time for a new pattern
-                if (this.game.grid.lastPatternTime === null || this.game.grid.lastPatternTime + 300 <= timer){
-                    this.game.grid.rotateHeatedTiles();
-                    this.game.grid.lastPatternTime = timer;
+                if (gameApp.grid.lastPatternTime === null || gameApp.grid.lastPatternTime + 300 <= timer){
+                    gameApp.grid.rotateHeatedTiles();
+                    gameApp.grid.lastPatternTime = timer;
                 }
 
                 // Check for game over.
-                if (this.player.dead) {
+                if (gameApp.player.dead) {
                     this.gameOver();
                 }
             }, 1);
