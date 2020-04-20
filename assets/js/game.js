@@ -79,7 +79,7 @@ var game = new Vue({
          *
          * @returns {string}
          */
-        displayTimer : function () {
+        displayTimer: function () {
             // Get minutes.
             let minutes = Math.floor((this.game.timer / 100) / 60);
             // Get seconds.
@@ -88,15 +88,13 @@ var game = new Vue({
             return (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
         },
 
-        resetGame: function () {
-            // Reset the game.
+        stopTimer: function() {
+
         },
 
-        quitGame: function () {
-            // Quit the game.
-        },
-        nextRound: function () {
-            // Increase the difficulty of the game.
+        gameOver: function () {
+            // Stop the timer.
+            this.stopTimer();
         },
 
         update: function () {
@@ -125,6 +123,11 @@ var game = new Vue({
                     this.game.grid.rotateHeatedTiles();
                     this.game.grid.lastPatternTime = timer;
 
+                }
+
+                // Check for game over.
+                if (this.player.dead) {
+                    this.gameOver();
                 }
             }, 1);
         },

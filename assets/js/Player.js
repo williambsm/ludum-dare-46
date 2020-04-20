@@ -46,6 +46,11 @@ class Player {
         this.health = this.health + amount;
     }
 
+    /**
+     * Return the current hp in %.
+     *
+     * @returns {number}
+     */
     getHealthPercentage () {
         return this.health * 100 / this.maxHealth;
     }
