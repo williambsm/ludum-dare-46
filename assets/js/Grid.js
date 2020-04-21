@@ -89,11 +89,11 @@ class Grid {
      *
      * @returns boolean
      */
-    turnFireTilesOn (tiles) {
+    turnFireTilesOn (tilesF) {
         // Go through all the tiles.
-        for (let tile of tiles) {
+        for (let tileF of tilesF) {
             // Turn the flame on
-            tile.flames = true;
+            tileF.flames = true;
         }
 
         // Return not found.
@@ -356,57 +356,53 @@ class Grid {
                     case "Up":
                         return  [
                                   this.tiles[0],
+                                  this.tiles[5],
+                                  this.tiles[10],
+                                  this.tiles[15],
+                                  this.tiles[20],
+                                  this.tiles[21],
+                                  this.tiles[22],
+                                  this.tiles[23],
+                                  this.tiles[24],
+                              ];
+                        break;
+                    case "Down":
+                        return  [
+                                  this.tiles[0],
                                   this.tiles[1],
                                   this.tiles[2],
                                   this.tiles[3],
                                   this.tiles[4],
                                   this.tiles[5],
-                                  this.tiles[6],
-                                  this.tiles[7],
-                                  this.tiles[8],
-                                  this.tiles[9]
-                              ];
-                        break;
-                    case "Down":
-                        return  [
+                                  this.tiles[10],
                                   this.tiles[15],
-                                  this.tiles[16],
-                                  this.tiles[17],
-                                  this.tiles[18],
-                                  this.tiles[19],
                                   this.tiles[20],
-                                  this.tiles[21],
-                                  this.tiles[22],
-                                  this.tiles[23],
-                                  this.tiles[24]
                               ];
                         break;
                     case "Left":
                         return  [
                                   this.tiles[0],
                                   this.tiles[1],
-                                  this.tiles[5],
-                                  this.tiles[6],
-                                  this.tiles[10],
-                                  this.tiles[11],
-                                  this.tiles[15],
-                                  this.tiles[16],
-                                  this.tiles[20],
-                                  this.tiles[21]
+                                  this.tiles[2],
+                                  this.tiles[3],
+                                  this.tiles[4],
+                                  this.tiles[9],
+                                  this.tiles[14],
+                                  this.tiles[19],
+                                  this.tiles[24],
                               ];
                         break;
                     case "Right":
                     return  [
-                              this.tiles[3],
-                              this.tiles[4],
-                              this.tiles[8],
-                              this.tiles[9],
-                              this.tiles[13],
-                              this.tiles[14],
-                              this.tiles[18],
-                              this.tiles[19],
+                              this.tiles[20],
+                              this.tiles[21],
+                              this.tiles[22],
                               this.tiles[23],
-                              this.tiles[24]
+                              this.tiles[24],
+                              this.tiles[19],
+                              this.tiles[14],
+                              this.tiles[9],
+                              this.tiles[4],
                           ];
                         break;
                     default:
@@ -428,36 +424,54 @@ class Grid {
                       ];
                 break;
             case "The Line":
-                return  [
-                          this.tiles[2],
-                          this.tiles[7],
-                          this.tiles[12],
-                          this.tiles[17],
-                          this.tiles[22],
-                          this.tiles[10],
-                          this.tiles[11],
-                          this.tiles[12],
-                          this.tiles[13],
-                          this.tiles[14]
-                      ];
+                    switch (direction) {
+                    case "Up":
+                        return  [
+                                  this.tiles[3],
+                                  this.tiles[8],
+                                  this.tiles[13],
+                                  this.tiles[18],
+                                  this.tiles[23]
+                              ];
+                        break;
+                    case "Down":
+                        return  [
+                                  this.tiles[0],
+                                  this.tiles[1],
+                                  this.tiles[2],
+                                  this.tiles[3],
+                                  this.tiles[4]
+                              ];
+                        break;
+                    case "Left":
+                        return  [
+                                  this.tiles[15],
+                                  this.tiles[16],
+                                  this.tiles[17],
+                                  this.tiles[18],
+                                  this.tiles[19]
+                              ];
+                        break;
+                    case "Right":
+                    return  [
+                              this.tiles[20],
+                              this.tiles[21],
+                              this.tiles[22],
+                              this.tiles[23],
+                              this.tiles[24],
+                              this.tiles[25]
+                          ];
+                        break;
+                    default:
+
+                }
                 break;
             case "Diagnal Left":
                 return  [
                           this.tiles[0],
-                          this.tiles[1],
-                          this.tiles[3],
-                          this.tiles[4],
-                          this.tiles[5],
                           this.tiles[6],
-                          this.tiles[8],
-                          this.tiles[9],
-                          this.tiles[15],
-                          this.tiles[16],
+                          this.tiles[12],
                           this.tiles[18],
-                          this.tiles[19],
-                          this.tiles[20],
-                          this.tiles[21],
-                          this.tiles[23],
                           this.tiles[24]
                       ];
                 break;
@@ -483,11 +497,13 @@ class Grid {
         let heatedTiles = this.getPatternTiles(pattern, direction);
         let fireTiles   = this.getFirePatternTiles(patternFire, directionFire);
 
+        console.log(pattern + " :: " + patternFire);
+
         // Record pattern
         this.lastPattern = pattern;
         this.lastFirePattern = patternFire;
         // Turn the tiles on.
         this.turnTilesOn(heatedTiles);
-        this.turnFireTilesOn(heatedTiles);
+        this.turnFireTilesOn(fireTiles);
     }
 }
