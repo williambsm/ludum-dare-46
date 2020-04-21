@@ -129,7 +129,7 @@ var game = new Vue({
 
                 // Check for game over.
                 if (gameApp.player.dead) {
-                    this.gameOver();
+                    gameApp.gameOver();
                 }
             }, 1);
         },

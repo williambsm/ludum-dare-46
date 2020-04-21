@@ -30,6 +30,25 @@ class Tile {
     }
 
     /**
+     * Set the flames on on this tile.
+     *
+     */
+    setFlamesOn () {
+        // Make sure player is not on this tile.
+        if (!this.player) {
+            // Set flames on.
+            this.flames = true;
+        }
+    }
+
+    /**
+     * Set the flames of on this tile.
+     */
+    setFlamesOff () {
+        this.flames = false;
+    }
+
+    /**
      * Set the player as on the tile.
      */
     setPlayerOn () {
@@ -42,6 +61,4 @@ class Tile {
     setPlayerOff () {
         this.player = false;
     }
-
-
 }

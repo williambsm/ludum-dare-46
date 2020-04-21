@@ -55,9 +55,9 @@ class Grid {
         // Go through all the tiles.
         for (let tile of this.tiles) {
             // Turn the hot off
-            tile.hot = false;
+            tile.setHeatOff();
             // Turn the flames off
-            tile.flames = false;
+            tile.setFlamesOff();
         }
 
         // Return not found.
@@ -75,7 +75,7 @@ class Grid {
         // Go through all the tiles.
         for (let tile of tiles) {
             // Turn the hot off
-            tile.hot = true;
+            tile.setHeatOn();
         }
 
         // Return not found.
@@ -93,7 +93,7 @@ class Grid {
         // Go through all the tiles.
         for (let tileF of tilesF) {
             // Turn the flame on
-            tileF.flames = true;
+            tileF.setFlamesOn();
         }
 
         // Return not found.

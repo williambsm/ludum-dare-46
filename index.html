@@ -12,9 +12,9 @@
             <p class="sub-header">You're about to get fried, how long can you last?</p>
             <ul>
                 <li><button v-on:click="startGame">Start game</button></li>
-                <li><button>Settings</button></li>
+                <!-- <li><button>Settings</button></li>
                 <li><button>What is going on?</button></li>
-                <li><button>Credits</button></li>
+                <li><button>Credits</button></li> -->
             </ul>
         </div>
         <div class="health-bar" v-if="interface === 'game'">
@@ -26,6 +26,11 @@
             {{ displayTimer() }}
         </div>
         <div class="grid" v-if="interface === 'game'">
+            <div class="game-over" v-if="player.dead">
+                <h1>You got cooked!</h1>
+                <span>Your managed to survive {{ displayTimer() }}. Good job!</span>
+                <button class="game-over-button" v-on:click="startGame">Play Again</button>
+            </div>
             <div v-for="tile in grid.tiles" class="tile" v-bind:class="{ on: tile.hot }" :data-position-x="tile.x" :data-position-y="tile.y">
                 <div class="flames" v-if="tile.flames"></div>
                 <div class="player" v-bind:class="{ dead: player.dead }" v-if="tile.player"></div>

@@ -64,6 +64,23 @@
   to {
     background-position-x: -750px; } }
 
+.game-over {
+  position: absolute;
+  background-color: white;
+  border: 1px black solid;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box; }
+  .game-over span {
+    display: block; }
+
+.game-over-button {
+  margin-top: 20px; }
+
 * {
   font-family: Arial, sans-serif; }
 
