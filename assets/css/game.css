@@ -7,17 +7,6 @@
   position: relative;
   border: 1px black solid;
   margin: 0 auto; }
-  .pan .health-bar {
-    width: 200px;
-    position: absolute;
-    top: 25px;
-    left: 25px;
-    background-color: red;
-    height: 20px;
-    border: 1px black solid; }
-    .pan .health-bar .health {
-      height: 20px;
-      background-color: green; }
   .pan .grid {
     position: absolute;
     top: 50%;
@@ -75,15 +64,42 @@
   to {
     background-position-x: -750px; } }
 
+* {
+  font-family: Arial, sans-serif; }
+
 .stats {
   width: 383px;
   display: grid;
   grid-template-columns: 8fr 2fr;
   grid-column-gap: 20px; }
 
+.health-bar {
+  width: 200px;
+  position: absolute;
+  top: 50px;
+  left: 25px;
+  background-color: red;
+  height: 20px;
+  border: 1px black solid; }
+  .health-bar .health-title {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    font-weight: 600; }
+  .health-bar .health {
+    height: 20px;
+    background-color: green; }
+
 .timer {
-  justify-self: center;
-  align-self: center; }
+  position: absolute;
+  top: 50px;
+  right: 50px; }
+
+.timer-title {
+  position: absolute;
+  top: -25px;
+  right: 0;
+  font-weight: 600; }
 
 .menu {
   position: absolute;

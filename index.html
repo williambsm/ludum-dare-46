@@ -18,9 +18,11 @@
             </ul>
         </div>
         <div class="health-bar" v-if="interface === 'game'">
+            <span class="health-title">HP</span>
             <div class="health" v-bind:style="{ width: player.getHealthPercentage() + '%' }"></div>
         </div>
         <div class="timer" v-if="interface === 'game'">
+            <span class="timer-title">Timer</span>
             {{ displayTimer() }}
         </div>
         <div class="grid" v-if="interface === 'game'">

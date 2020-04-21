@@ -91,12 +91,13 @@ var game = new Vue({
         },
 
         stopTimer: function() {
-
+            clearInterval(this.game.timerEvent);
         },
 
         gameOver: function () {
             // Stop the timer.
             this.stopTimer();
+
         },
 
         update: function () {
